@@ -15,16 +15,16 @@ def get_data(timeframe):
 
 # Calcular indicadores
 def calculate_indicators(df):
-    df['EMA9'] = ta.trend.ema_indicator(df['close'], window=9).round(2)
-    df['EMA21'] = ta.trend.ema_indicator(df['close'], window=21).round(2)
-    df["Cross"] = (df["EMA9"] - df["EMA21"]).round(2)
-    df['RSI'] = ta.momentum.rsi(df['close'], window=14).round(2)
-    df['MACD'] = ta.trend.macd(df['close']).round(2)
-    df['MACD_signal'] = ta.trend.macd_signal(df['close']).round(2)
+    df['EMA9'] = ta.trend.ema_indicator(df['close'], window=9).round(0)
+    df['EMA21'] = ta.trend.ema_indicator(df['close'], window=21).round(0)
+    df["Cross"] = (df["EMA9"] - df["EMA21"]).round(0)
+    df['RSI'] = ta.momentum.rsi(df['close'], window=14).round(0)
+    df['MACD'] = ta.trend.macd(df['close']).round(0)
+    df['MACD_signal'] = ta.trend.macd_signal(df['close']).round(0)
     bollinger = ta.volatility.BollingerBands(df['close'])
-    df['Bollinger_low'] = bollinger.bollinger_lband().round(2)
-    df['Bollinger_high'] = bollinger.bollinger_hband().round(2)
-    df["RVOL"] = df["volume"].rolling(20).mean().round(2) / df["volume"].rolling(50).mean().round(2)
+    df['Bollinger_low'] = bollinger.bollinger_lband().round(0)
+    df['Bollinger_high'] = bollinger.bollinger_hband().round(0)
+    df["RVOL"] = df["volume"].rolling(20).mean().round(0) / df["volume"].rolling(50).mean().round(0)
     return df
 
 # Generar señales de compra/venta
