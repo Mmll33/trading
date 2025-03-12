@@ -75,6 +75,7 @@ def run_bot():
         df = calculate_indicators(df)
         signal = generate_signals(df)
         results[timeframe] = {
+            "timeframe": timeframe,
             "signal": signal,
             "price": df['close'].iloc[-1],
             "Cross": df["Cross"].iloc[-1],
