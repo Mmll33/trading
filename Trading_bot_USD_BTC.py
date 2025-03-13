@@ -8,7 +8,7 @@ timeframes = ["5m", "15m", "30m", "1h", "4h", "1d", "1M"]
 
 # Obtener datos históricos
 def get_data(timeframe):
-    ohlcv = exchange.fetch_ohlcv('BTC/USDT', timeframe=timeframe, limit=100)
+    ohlcv = exchange.fetch_ohlcv('XAU/USDT', timeframe=timeframe, limit=100)
     df = pd.DataFrame(ohlcv, columns=['timestamp', 'open', 'high', 'low', 'close', 'volume'])
     df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms')
     return df
