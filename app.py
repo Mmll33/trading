@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 import Trading_bot_XAU_USDT as bot
 from threading import Thread
-import time
+
 
 app = Flask(__name__)
 
