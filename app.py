@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-import Trading_bot_XAUt_USD as bot
+import Trading_bot_PAXG_USDT as bot
 from threading import Thread
 
 
